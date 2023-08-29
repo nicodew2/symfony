@@ -8,13 +8,24 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
-    #[Route('/default', name: 'app_default')]
-    public function index(): Response
+    // /qui va lister nos articles
+    #[Route('/', name: 'Liste_article', methods:["GET"])]
+    public function ListeArticle():Response
     {
-       $response = new Response(content: "<h1>Titre</h1><p>Bonjour nous sommes dans le controller</p>");
+        return new Response(
+            "<ul><li><a href='/1'>Article 1</li>
+                <li><a href='/2'>Article 2</li>
+                <li><a href='/3'>Article 3</li>
+  </ul>");
 
-        
-
-       return $response;
+    } 
+    // /12 afficher un article
+    #[Route('/{id}', name: 'vue_article', requirements:["id"=>"\d+"], methods:["GET"])]
+    public function vueArticle($id){
+        return new Response("<h1>Article".$id."</h1><p> Ceci est le contenu de l'article</p>");
     }
 }
+
+   
+
+ 
