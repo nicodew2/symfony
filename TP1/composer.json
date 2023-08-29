@@ -1,0 +1,9 @@
+{
+    "require-dev": {
+        "symfony/maker-bundle": "^1.50"
+    },
+    "require": {
+        "symfony/console": "^6.3",
+        "symfony/asset": "^6.3"
+    }
+}
